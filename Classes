@@ -1,0 +1,46 @@
+class Pessoa:
+
+    def __init__(self,nome,endereco):
+        self.nome = nome
+        self.endereco  = endereco
+
+    def get_nome(self):
+        return self.nome
+
+    def get_endereço(self):
+        return self.endereco
+
+
+class PessoaFisica (Pessoa):
+
+    def __init__(self, nome,endereco, cpf):
+        super().__init__(nome, endereco)
+        self.cpf = cpf
+
+    def get_cpf(self):
+        return self.cpf
+
+class PessoaJuridica(Pessoa):
+
+    def __init__(self, nome, endereco, cnpj):
+        super().__init__(nome, endereco)
+        self.cnpj = cnpj
+    
+    def get_cnpj(self):
+        return self.cnpj
+
+
+
+
+
+#Programa Principal
+gabriel = PessoaFisica ('Gabriel Maiorani', 'Rua Juquis 31', '52362267830')
+loja = PessoaJuridica ('Pastel do Biel', 'Rua Evolução, 397', '03876226925')
+print ('Informações da pessoa física:')
+print ('Nome: ', gabriel.get_nome())
+print ('Endereço: ', gabriel.get_endereço())
+print ('CPF: ', gabriel.get_cpf())
+print ('Gabriel é uma instância da classe PessoaFísica?', isinstance (gabriel, PessoaFisica))
+print ('Gabriel é uma instância da classe PessoaJuridica?', isinstance (gabriel, PessoaJuridica))
+print ('Gabriel é uma instância da classe Pessoa?', isinstance (gabriel, Pessoa))
+print ("="*30)
